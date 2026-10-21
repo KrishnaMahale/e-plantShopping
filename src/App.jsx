@@ -1,49 +1,40 @@
 
-import React, { useState } from 'react';
-import ProductList from './ProductList';
-import './App.css';
-import AboutUs from './AboutUs';
+import React from "react";
+import "./App.css";
 
 function App() {
-  
-  const [showProductList, setShowProductList] = useState(false);
-
-  const handleGetStartedClick = () => {
-    setShowProductList(true);
-  };
-
-  const handleHomeClick = () => {
-    setShowProductList(false);
+  const handleGetStarted = () => {
+    window.location.href = "/products";
   };
 
   return (
-    <div className="app-container">
-      <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
-        <div className="background-image"></div>
-        <div className="content">
-         <div className="landing_content">
-         <h1>Welcome To Paradise Nursery</h1>
-          <div className="divider"></div>
-          <p>Where Green Meets Serenity</p>
-         
-          <button className="get-started-button" onClick={handleGetStartedClick}>
-            Get Started
-          </button>
-         </div>
-          <div className="aboutus_container">
-          <AboutUs/>
-          </div>
-          </div>
+    <div className="landing-page">
+      <div className="landing-content">
+        <h1>Paradise Nursery</h1>
 
-      </div>
-      <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
-        <ProductList onHomeClick={handleHomeClick}/>
+        <h2>Welcome to Paradise Nursery!</h2>
+
+        <p>
+          Discover the beauty of nature with our wonderful collection
+          of houseplants. From decorative indoor plants to aromatic
+          and medicinal plants, find the perfect green companion
+          for your home or office.
+        </p>
+
+        <p>
+          Bring freshness, beauty, and a touch of nature into your
+          everyday life. Start your plant journey with us today!
+        </p>
+
+        <button
+          className="get-started-btn"
+          onClick={handleGetStarted}
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );
 }
 
 export default App;
-
-
-
